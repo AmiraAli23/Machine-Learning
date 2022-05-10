@@ -62,7 +62,7 @@ print(classification_report_imbalanced(y_test, y_pred))
 <img width="637" alt="Screen Shot 2022-05-10 at 7 18 52 PM" src="https://user-images.githubusercontent.com/99091066/167740080-34aa14a6-c802-4f4c-bf1b-ee9f31defe68.png">
 
 
-
+  > F1 scores are the means between precision and recall, and determine the model's accuracy. The average f1 score for this model is 0.74. This is a decent score, however it could be higher. 
 
 
 
