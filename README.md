@@ -140,4 +140,11 @@ balanced_accuracy_score(y_test, y_predsm)
 
 > F1 score is also high.
 
+## Resampling Conclusions
+
+1. The models with the highest balanced accuracy scores are the SMOTE and SMOTEEN models.
+
+2. Each model had a recall score of 0.99, however only the RandomOversampler, SMOTE, and SMOTEEN models had a perfect score for `high_risk` recall at 1. 
+
+3. All of the models had the same geometric score of 0.99
 
