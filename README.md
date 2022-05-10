@@ -87,9 +87,24 @@ balanced_accuracy_score(y_test, y_pred1)
 
 ### SMOTE Oversampling
 
+We import `SMOTE` from `imblearn.over_sampling`
+
+```python
+y_predsmote = modelsmote.predict(x_scaledtest)
+balanced_accuracy_score(y_test, y_predsmote)
+````
+
+<img width="348" alt="Screen Shot 2022-05-10 at 7 34 40 PM" src="https://user-images.githubusercontent.com/99091066/167741333-a9ea767c-9945-4d47-b1f5-c1e49230a50a.png">
+
+  > The balanced accuracy using SMOTE is similar to RandomOversampler, at ~0.994668.
 
 
+<img width="636" alt="Screen Shot 2022-05-10 at 7 35 51 PM" src="https://user-images.githubusercontent.com/99091066/167741437-bc711db0-dc2a-4bea-97df-8de03e30a7af.png">
 
+  > This model also generates a high f1 score at 0.99.
+
+
+### Undersampling
 
 
 
