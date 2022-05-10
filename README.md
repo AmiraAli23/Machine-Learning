@@ -66,6 +66,27 @@ print(classification_report_imbalanced(y_test, y_pred))
 
 
 
+### Oversampling
+
+We resample the data with `RandomOversampler` from `imblearn.over_sampling` and perform similar steps above. 
+
+```python
+y_pred1 = logreg.predict(x_scaledtest) 
+balanced_accuracy_score(y_test, y_pred1)
+````
+
+<img width="300" alt="Screen Shot 2022-05-10 at 7 29 55 PM" src="https://user-images.githubusercontent.com/99091066/167740976-471148f5-b545-4915-a5db-656758b7a9b0.png">
+
+  > The balanced accuracy score for this test was significantly higher than the previous test, at ~ 0.99464. 
+
+
+<img width="632" alt="Screen Shot 2022-05-10 at 7 30 58 PM" src="https://user-images.githubusercontent.com/99091066/167741057-a320fb3d-e8a8-4313-baec-fb71f1379f8f.png">
+
+  > The F1 scores for this test are much higher at an average of 0.99. 
+
+
+### SMOTE Oversampling
+
 
 
 
