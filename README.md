@@ -15,7 +15,9 @@ We check how many low and high risk individuals are in the data set.
 
 ```python 
 # Check the balance of our target values
-y.value_counts(normalize=False)````
+y.value_counts(normalize=False)
+
+```
 
 <img width="255" alt="Screen Shot 2022-05-10 at 7 09 02 PM" src="https://user-images.githubusercontent.com/99091066/167739158-29c5c246-2e51-47c1-81a1-446e6aefa314.png">
 
