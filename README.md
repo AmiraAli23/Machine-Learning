@@ -126,6 +126,18 @@ balanced_accuracy_score(y_test, y_predcluster)
 
 We import `SMOTEEN` from `imblearn.combine`
 
+```python 
+y_predsm = modelsm.predict(x_scaledtest)
+balanced_accuracy_score(y_test, y_predsm)
+````
 
+<img width="305" alt="Screen Shot 2022-05-10 at 7 45 33 PM" src="https://user-images.githubusercontent.com/99091066/167742180-a6012663-038e-4343-9f49-8752e6c36365.png">
+
+  > The balanced accuracy score is high, and seems to be identical to the SMOTE Oversampling model.
+
+
+<img width="624" alt="Screen Shot 2022-05-10 at 7 46 21 PM" src="https://user-images.githubusercontent.com/99091066/167742243-f7b982ab-5856-4afc-a396-6cddc149df36.png">
+
+> F1 score is also high.
 
 
