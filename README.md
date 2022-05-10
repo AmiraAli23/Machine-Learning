@@ -24,4 +24,58 @@ y.value_counts(normalize=False)
   > There are 75,036 low risk and 2,500 high risk individuals.
 
 
+### Data Pre-Processing 
+
+We first import `StandardScaler` from `sklearn.preprocessing` and fit the training data. 
+
+````python
+
+scalex = data_scaler.fit(X_train)
+
+````
+
+### Simple Logistic Regression
+
+After importing `LogisticRegression` from `sklearn.linear_model` , we fit the data and calculate the balanced accuracy based on the `y_test` and `y_pred` variables. We also display the confusion matrix and print the imbalanced classification report. 
+
+```python 
+balanced_accuracy_score(y_test, y_pred)
+```
+
+<img width="314" alt="Screen Shot 2022-05-10 at 7 16 38 PM" src="https://user-images.githubusercontent.com/99091066/167739896-85e0b6b4-2d65-48c3-956a-a4f95b18d55b.png">
+
+
+  > Using this model, we calculate a balanced accuracy score of  ~ 0.80415
+
+
+```python
+confusion_matrix(y_test, y_pred)
+````
+
+<img width="242" alt="Screen Shot 2022-05-10 at 7 17 52 PM" src="https://user-images.githubusercontent.com/99091066/167739982-bb468ef7-95f6-40e4-8dd9-bb0b6e364787.png">
+
+```python
+print(classification_report_imbalanced(y_test, y_pred))
+````
+
+
+<img width="637" alt="Screen Shot 2022-05-10 at 7 18 52 PM" src="https://user-images.githubusercontent.com/99091066/167740080-34aa14a6-c802-4f4c-bf1b-ee9f31defe68.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
