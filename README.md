@@ -106,11 +106,25 @@ balanced_accuracy_score(y_test, y_predsmote)
 
 ### Undersampling
 
+We import `ClusterCentroids` from `imblearn.under_sampling`
+
+ ```python 
+y_predcluster=modelcc.predict(x_scaledtest)
+balanced_accuracy_score(y_test, y_predcluster)
+````
+
+<img width="341" alt="Screen Shot 2022-05-10 at 7 39 46 PM" src="https://user-images.githubusercontent.com/99091066/167741735-8c0a39c2-c518-4c37-99ab-ea57b7ffbaaa.png">
+
+  > The model generates a good balanced accuracy score of ~0.99328, slightly lower compared to the other test.
 
 
+<img width="622" alt="Screen Shot 2022-05-10 at 7 41 57 PM" src="https://user-images.githubusercontent.com/99091066/167741904-fea4fd7a-45fe-47fb-be6c-2c854de24b4a.png">
 
+  > The F1 score on this test is high at 0.99.
 
+### Combination (Over and Under) Sampling
 
+We import `SMOTEEN` from `imblearn.combine`
 
 
 
