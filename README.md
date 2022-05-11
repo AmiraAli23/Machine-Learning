@@ -148,3 +148,58 @@ balanced_accuracy_score(y_test, y_predsm)
 
 3. All of the models had the same geometric score of 0.99
 
+## Ensemble Learning
+
+Using the LoanStats data [file](https://github.com/AmiraAli23/Machine-Learning/blob/ac947c33ae67956b80a752d22a7a27cda6df81a9/LoanStats_2019Q1.csv), we  clean the data by dropping all null values. We then convert all non-numerical values as dummy variables in order to properly run the tests.
+
+
+We then assign X as all columns except `loan status` and Y as `loan status`
+
+In this dataset, `68470` individuals are considered high risk while `347` are considered low risk.
+
+### Data Pre-Processing
+
+Using `StandardScaler` from `sklearn.preprocessing` , we fit the training data. 
+
+````python 
+scalex=data_scaler.fit(X_train)
+x_scaled = scalex.transform(X_train)
+x_scaledtest=scalex.transform(X_test)
+
+````
+
+## Ensemble Learners
+
+### Balanced Random Forest Classifier
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
