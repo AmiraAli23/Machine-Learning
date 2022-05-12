@@ -3,15 +3,14 @@ Unit 11 - Risky Business
 
 ![image](https://user-images.githubusercontent.com/99091066/167738122-a4b8a91f-2baf-481b-9d3a-396b4e04ca07.jpeg)
 
-This assignment evaluates several machine learning models in order to predict credit risk. 
+This assignment looks into evaluating several machine learning models in order to predict credit risk. 
 
 ## Resampling
 
-Using the lending data [file](https://github.com/AmiraAli23/Machine-Learning/blob/0c634c9c7b35c9e3c2690e3f67006cd333b118a2/lending_data.csv) , we analyzed the value types for each column and converted the columns with non-numerical values to dummy variables using the `pd.get_dummies` function.
+Using the lending data [file](https://github.com/AmiraAli23/Machine-Learning/blob/0c634c9c7b35c9e3c2690e3f67006cd333b118a2/lending_data.csv), we analyzed the value types for each column and converted the columns with non-numerical values to dummy variables using the `pd.get_dummies` function.
 
-We set X as all of the columns besides loan status, and Y as loan status, since we are trying to determine whether an investor is low or high risk.
+We set X as all of the columns save for `loan_status`, which is the target variable, and was set as the Y. This model was used to assess the risk of individual investors in the dataset.
 
-We check how many low and high risk individuals are in the data set. 
 
 ```python 
 # Check the balance of our target values
@@ -26,7 +25,7 @@ y.value_counts(normalize=False)
 
 ### Data Pre-Processing 
 
-We first import `StandardScaler` from `sklearn.preprocessing` and fit the training data. 
+We first imported `StandardScaler` from `sklearn.preprocessing` and fitted the training data. 
 
 ````python
 
@@ -36,7 +35,7 @@ scalex = data_scaler.fit(X_train)
 
 ### Simple Logistic Regression
 
-After importing `LogisticRegression` from `sklearn.linear_model` , we fit the data and calculate the balanced accuracy based on the `y_test` and `y_pred` variables. We also display the confusion matrix and print the imbalanced classification report. 
+After importing `LogisticRegression` from `sklearn.linear_model`, we fitted the data and calculated the balanced accuracy based on the `y_test` and `y_pred` variables. We also displayed the confusion matrix and printed the imbalanced classification report. 
 
 ```python 
 balanced_accuracy_score(y_test, y_pred)
@@ -45,7 +44,7 @@ balanced_accuracy_score(y_test, y_pred)
 <img width="314" alt="Screen Shot 2022-05-10 at 7 16 38 PM" src="https://user-images.githubusercontent.com/99091066/167739896-85e0b6b4-2d65-48c3-956a-a4f95b18d55b.png">
 
 
-  > Using this model, we calculate a balanced accuracy score of  ~ 0.80415
+  > Using this model, we calculated a balanced accuracy score of ~ 0.80415
 
 
 ```python
@@ -62,13 +61,13 @@ print(classification_report_imbalanced(y_test, y_pred))
 <img width="637" alt="Screen Shot 2022-05-10 at 7 18 52 PM" src="https://user-images.githubusercontent.com/99091066/167740080-34aa14a6-c802-4f4c-bf1b-ee9f31defe68.png">
 
 
-  > F1 scores are the means between precision and recall, and determine the model's accuracy. The average f1 score for this model is 0.74. This is a decent score, however it could be higher. 
+  > F1 scores are the means between precision and recall, and determine the model's accuracy. The average F1 score for this model is 0.74. This is a decent score, however it could be higher. 
 
 
 
 ### Oversampling
 
-We resample the data with `RandomOversampler` from `imblearn.over_sampling` and perform similar steps above. 
+We resampled the data with `RandomOversampler` from `imblearn.over_sampling` and performed similar steps as above. 
 
 ```python
 y_pred1 = logreg.predict(x_scaledtest) 
@@ -101,12 +100,12 @@ balanced_accuracy_score(y_test, y_predsmote)
 
 <img width="636" alt="Screen Shot 2022-05-10 at 7 35 51 PM" src="https://user-images.githubusercontent.com/99091066/167741437-bc711db0-dc2a-4bea-97df-8de03e30a7af.png">
 
-  > This model also generates a high f1 score at 0.99.
+  > This model also generates a high F1 score at 0.99.
 
 
 ### Undersampling
 
-We import `ClusterCentroids` from `imblearn.under_sampling`
+We imported `ClusterCentroids` from `imblearn.under_sampling`
 
  ```python 
 y_predcluster=modelcc.predict(x_scaledtest)
@@ -124,7 +123,7 @@ balanced_accuracy_score(y_test, y_predcluster)
 
 ### Combination (Over and Under) Sampling
 
-We import `SMOTEEN` from `imblearn.combine`
+We imported `SMOTEEN` from `imblearn.combine`
 
 ```python 
 y_predsm = modelsm.predict(x_scaledtest)
@@ -150,16 +149,16 @@ balanced_accuracy_score(y_test, y_predsm)
 
 ## Ensemble Learning
 
-Using the LoanStats data [file](https://github.com/AmiraAli23/Machine-Learning/blob/ac947c33ae67956b80a752d22a7a27cda6df81a9/LoanStats_2019Q1.csv), we  clean the data by dropping all null values. We then convert all non-numerical values as dummy variables in order to properly run the tests.
+Using the LoanStats data [file](https://github.com/AmiraAli23/Machine-Learning/blob/ac947c33ae67956b80a752d22a7a27cda6df81a9/LoanStats_2019Q1.csv), we  cleaned the data by dropping all null values. We then converted all non-numerical values as dummy variables in order to properly run the tests.
 
 
-We then assign X as all columns except `loan status` and Y as `loan status`
+We then assigned X as all columns except `loan_status`, which was the Y.
 
 In this dataset, `68470` individuals are considered high risk while `347` are considered low risk.
 
 ### Data Pre-Processing
 
-Using `StandardScaler` from `sklearn.preprocessing` , we fit the training data. 
+Using `StandardScaler` from `sklearn.preprocessing` , we fitted the training data. 
 
 ````python 
 scalex=data_scaler.fit(X_train)
@@ -172,7 +171,7 @@ x_scaledtest=scalex.transform(X_test)
 
 ### Balanced Random Forest Classifier
 
-We import `BalancedRandomForestClassifier` from `imblearn.ensemble` 
+We imported `BalancedRandomForestClassifier` from `imblearn.ensemble` 
 
 ````python
  
@@ -188,12 +187,12 @@ y_pred = brf.predict(x_scaledtest)
 
 <img width="614" alt="Screen Shot 2022-05-11 at 7 47 47 PM" src="https://user-images.githubusercontent.com/99091066/167965286-17458ee7-e417-45ce-bdba-12185e810fd3.png">
 
-  > The f1 score for this model is high at 0.94.
+  > The F1 score for this model is high at 0.94.
 
 
 ### Easy Ensemble Classifier
 
-We import `EasyEnsembleClassifier` from `imblearn.ensemble`
+We imported `EasyEnsembleClassifier` from `imblearn.ensemble`
 
 ````python
 
