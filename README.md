@@ -172,6 +172,57 @@ x_scaledtest=scalex.transform(X_test)
 
 ### Balanced Random Forest Classifier
 
+We import `BalancedRandomForestClassifier` from `imblearn.ensemble` 
+
+````python
+ 
+brf = BalancedRandomForestClassifier(n_estimators=100, random_state=1)
+brf.fit(x_scaled, y_train)
+y_pred = brf.predict(x_scaledtest) 
+
+````
+
+<img width="305" alt="Screen Shot 2022-05-11 at 7 45 59 PM" src="https://user-images.githubusercontent.com/99091066/167965101-5ebc31b0-2d88-4d86-a955-88adc8f30817.png">
+
+  >  The balanced accuracy score for this test is ~ 0.7887. 
+
+<img width="614" alt="Screen Shot 2022-05-11 at 7 47 47 PM" src="https://user-images.githubusercontent.com/99091066/167965286-17458ee7-e417-45ce-bdba-12185e810fd3.png">
+
+  > The f1 score for this model is high at 0.94.
+
+
+### Easy Ensemble Classifier
+
+We import `EasyEnsembleClassifier` from `imblearn.ensemble`
+
+````python
+
+eec = EasyEnsembleClassifier(n_estimators=100, random_state=1)
+eec.fit(x_scaled, y_train)
+y_pred1 = eec.predict(x_scaledtest) 
+
+````
+
+
+<img width="294" alt="Screen Shot 2022-05-11 at 7 52 40 PM" src="https://user-images.githubusercontent.com/99091066/167965742-33e60c04-12a6-4eb3-bf68-b02330ea8125.png">
+
+  > The balanced accuracy score is significantly higher than the previous model at ~0.9253.
+
+<img width="609" alt="Screen Shot 2022-05-11 at 7 53 32 PM" src="https://user-images.githubusercontent.com/99091066/167965824-2c3a3a0c-aafd-4c4b-afb2-c31cb3d8e72a.png">
+
+  > The f1 score is higher than the previous model at 0.97.
+
+
+## Ensemble Conclusions
+
+1. The EasyEnsemble model had the higher balanced accuracy score ( 0.788 vs 0.9253 )
+
+2. The EasyEnsemble model had a higher recall score (0.9 vs 0.94)
+
+3. The EasyEnsemble model has a higher geomteric score (0.78 vs 0.93)
+
+4. The top three features in order of importance are `total_rec_prncp` , `last_pymnt_amnt`, and `total_pymnt_inv`. 
+
 
 
 
